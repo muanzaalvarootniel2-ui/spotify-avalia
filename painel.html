@@ -1,23 +1,39 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Painel Spotify</title>
+  <title>Painel - Spotify Avalia</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="container">
-    <img src="spotify-logo.svg" alt="Spotify Logo" class="logo">
-    <h2>Olá, Teste</h2>
+    <!-- Logo Spotify -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify" class="logo">
+
+    <!-- Saudação dinâmica -->
+    <h2 id="saudacao">Olá</h2>
     <p class="saldo">Seu saldo: <span class="green">0.00 Kz</span></p>
 
+    <!-- Caixa de alerta -->
     <div class="alert-box">
       <strong>Atenção!</strong>
       <p>Clique em Avaliar artistas e comece a ganhar dinheiro de forma rápida e fácil.</p>
     </div>
 
-    <a href="avaliacao.html" class="main-btn">Avaliar artistas</a>
+    <!-- Botão de ação -->
+    <button class="main-btn" onclick="irParaAvaliacao()">Avaliar artistas</button>
   </div>
+
+  <script>
+    // Recupera nome do localStorage e mostra no painel
+    const nomeUsuario = localStorage.getItem("usuarioNome") || "Usuário";
+    document.getElementById("saudacao").textContent = `Olá, ${nomeUsuario}`;
+
+    // Redireciona para a página de avaliação
+    function irParaAvaliacao() {
+      window.location.href = "avaliacao.html";
+    }
+  </script>
 </body>
 </html>
