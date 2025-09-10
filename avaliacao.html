@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Avaliação</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body onload="carregarAvaliacao()">
+  <h2 id="saudacao"></h2>
+  <p>Seu saldo: <span id="saldo">0.00</span> Kz</p>
+  <p>Responda e ganhe: 2.000 Kz</p>
+
+  <h3>De 1 a 5, qual nota você daria para as músicas de Matias Damásio?</h3>
+  <div>
+    <button onclick="avaliar(1)">1</button>
+    <button onclick="avaliar(2)">2</button>
+    <button onclick="avaliar(3)">3</button>
+    <button onclick="avaliar(4)">4</button>
+    <button onclick="avaliar(5)">5</button>
+  </div>
+
+  <h3>Você recomendaria o cantor Matias para os seus amigos e familiares?</h3>
+  <button onclick="avaliarExtra('sim')">Sim</button>
+  <button onclick="avaliarExtra('nao')">Não</button>
+
+  <h3>Qual faixa etária você acha que mais escuta o artista Matias?</h3>
+  <button onclick="avaliarExtra('-18')">-18 anos</button>
+  <button onclick="avaliarExtra('+18')">+18 anos</button>
+
+  <br><br>
+  <button onclick="enviarRespostas()">Enviar respostas</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
