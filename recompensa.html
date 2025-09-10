@@ -2,66 +2,65 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8">
-  <title>Recompensa - Spotify Avalia</title>
+  <title>Recompensa</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body { 
-      font-family: 'Poppins', sans-serif; 
-      background: #fff; 
-      margin: 0; 
-      padding: 0; 
-      display: flex; 
-      justify-content: center; 
-      align-items: center; 
-      height: 100vh; 
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: #fff;
+      font-family: 'Poppins', sans-serif;
       text-align: center;
     }
-    .container { max-width: 500px; padding: 20px; }
-    .logo { width: 80px; margin-bottom: 20px; }
-    .dinheiro-img { 
-      width: 70%; 
-      max-width: 300px; 
-      border-radius: 8px; 
-      box-shadow: 0 5px 15px rgba(0,0,0,0.15); 
-      margin-bottom: 25px; 
+    .logo {
+      width: 120px;
+      margin-bottom: 20px;
     }
-    .texto-recompensa {
+    .dinheiro {
+      width: 65%;
+      max-width: 300px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      margin-bottom: 25px;
+    }
+    .texto {
       font-size: 20px;
-      font-weight: 500;
-      color: #212121;
+      color: #333;
+      margin-bottom: 10px;
     }
-    .texto-recompensa span {
+    .valor {
+      font-size: 24px;
+      font-weight: bold;
       color: #00C853;
-      font-weight: 700;
-    }
-    .fade-in {
-      animation: fadeIn 1.5s ease-in-out;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
-  <div class="container fade-in">
-    <!-- Logo Spotify -->
-    <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify" class="logo">
+  <!-- Logo Spotify -->
+  <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" 
+       alt="Spotify" class="logo">
 
-    <!-- Imagem do dinheiro -->
-    <img src="https://media.istockphoto.com/id/1251269867/pt/foto/bundles-of-angolan-kwanza-banknotes.jpg?s=612x612" 
-         alt="Kwanzas" class="dinheiro-img">
+  <!-- Imagem decorativa de notas (Kwanzas) -->
+  <img src="https://i.ibb.co/VY6Y6gW/kwanza-notas.jpg" 
+       alt="Dinheiro Kwanza" class="dinheiro">
 
-    <!-- Texto de recompensa -->
-    <p class="texto-recompensa">Você ganhou: <span>4.000 Kz</span></p>
-  </div>
+  <!-- Texto de recompensa -->
+  <div class="texto">Você ganhou:</div>
+  <div class="valor">4.000 Kz</div>
+  <div class="texto">Saldo total: <span class="valor">4.000 Kz</span></div>
 
   <script>
-    // Depois de 4 segundos, redireciona de volta ao painel
+    // Guardar saldo no localStorage
+    localStorage.setItem("saldo", 4000);
+
+    // Redireciona após 2 segundos
     setTimeout(() => {
-      window.location.href = "painel.html";
-    }, 4000);
+      window.location.href = "avaliacao2.html"; // próxima avaliação (Yasmine)
+    }, 2000);
   </script>
 </body>
 </html>
