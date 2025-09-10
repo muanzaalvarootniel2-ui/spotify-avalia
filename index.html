@@ -27,6 +27,19 @@
     </form>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    function salvarUsuario(e) {
+      e.preventDefault();
+      const nome = document.getElementById("nome").value;
+      const email = document.getElementById("email").value;
+
+      // Guardar dados no localStorage (podemos usar depois no painel.html)
+      localStorage.setItem("usuarioNome", nome);
+      localStorage.setItem("usuarioEmail", email);
+
+      // Redirecionar para painel.html
+      window.location.href = "painel.html";
+    }
+  </script>
 </body>
 </html>
