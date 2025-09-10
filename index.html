@@ -1,32 +1,23 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Spotify Avalia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel Spotify</title>
   <link rel="stylesheet" href="style.css">
-  <!-- Fonte Poppins e ícones -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
   <div class="container">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify" class="logo">
-    <h1>Bem-vindo(a) ao Spotify Avalia</h1>
-    <p>Insira seus dados para prosseguir!</p>
+    <img src="spotify-logo.svg" alt="Spotify Logo" class="logo">
+    <h2>Olá, Teste</h2>
+    <p class="saldo">Seu saldo: <span class="green">0.00 Kz</span></p>
 
-    <form onsubmit="salvarUsuario(event)">
-      <div class="input-group">
-        <i class="fa fa-user"></i>
-        <input type="text" id="nome" placeholder="Nome" required>
-      </div>
-      <div class="input-group">
-        <i class="fa fa-envelope"></i>
-        <input type="email" id="email" placeholder="E-mail" required>
-      </div>
-      <button type="submit">ENTRAR</button>
-    </form>
+    <div class="alert-box">
+      <strong>Atenção!</strong>
+      <p>Clique em Avaliar artistas e comece a ganhar dinheiro de forma rápida e fácil.</p>
+    </div>
+
+    <a href="avaliacao.html" class="main-btn">Avaliar artistas</a>
   </div>
-
-  <script src="script.js"></script>
 </body>
 </html>
