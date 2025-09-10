@@ -4,16 +4,28 @@
   <meta charset="UTF-8">
   <title>Spotify Avalia</title>
   <link rel="stylesheet" href="style.css">
+  <!-- Fonte Poppins e ícones -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <h1>Bem-vindo(a) ao Spotify Avalia</h1>
-  <p>Insira seus dados para prosseguir!</p>
+  <div class="container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify" class="logo">
+    <h1>Bem-vindo(a) ao Spotify Avalia</h1>
+    <p>Insira seus dados para prosseguir!</p>
 
-  <form onsubmit="salvarUsuario(event)">
-    <input type="text" id="nome" placeholder="Nome" required>
-    <input type="email" id="email" placeholder="E-mail" required>
-    <button type="submit">ENTRAR</button>
-  </form>
+    <form onsubmit="salvarUsuario(event)">
+      <div class="input-group">
+        <i class="fa fa-user"></i>
+        <input type="text" id="nome" placeholder="Nome" required>
+      </div>
+      <div class="input-group">
+        <i class="fa fa-envelope"></i>
+        <input type="email" id="email" placeholder="E-mail" required>
+      </div>
+      <button type="submit">ENTRAR</button>
+    </form>
+  </div>
 
   <script src="script.js"></script>
 </body>
