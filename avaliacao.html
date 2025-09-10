@@ -2,34 +2,107 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8">
-  <title>Avaliação</title>
+  <title>Avaliação - Spotify Avalia</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Poppins', sans-serif; background: #fff; margin: 0; padding: 0; }
+    .container { max-width: 600px; margin: auto; padding: 20px; text-align: center; }
+    .logo { width: 80px; margin-bottom: 15px; }
+    .saldo { margin: 10px 0; }
+    .green { color: #00C853; font-weight: 600; }
+    .ganho { margin: 10px 0; font-weight: 600; }
+    .ganho span { color: #00C853; }
+    .artista-img { width: 80%; border-radius: 6px; margin: 15px 0; }
+    .pergunta { margin: 20px 0; font-weight: 500; }
+    .opcoes { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+    .opcao {
+      flex: 1 1 45%;
+      min-width: 100px;
+      padding: 10px;
+      background: #fff;
+      border: 2px solid #ddd;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .opcao:hover { border-color: #00C853; }
+    .opcao.selecionada { border-color: #2196F3; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    button {
+      background: #00C853;
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: 0.3s;
+    }
+    button:hover { background: #009624; }
+  </style>
 </head>
-<body onload="carregarAvaliacao()">
-  <h2 id="saudacao"></h2>
-  <p>Seu saldo: <span id="saldo">0.00</span> Kz</p>
-  <p>Responda e ganhe: 2.000 Kz</p>
+<body>
+  <div class="container">
+    <!-- Logo Spotify -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify" class="logo">
 
-  <h3>De 1 a 5, qual nota você daria para as músicas de Matias Damásio?</h3>
-  <div>
-    <button onclick="avaliar(1)">1</button>
-    <button onclick="avaliar(2)">2</button>
-    <button onclick="avaliar(3)">3</button>
-    <button onclick="avaliar(4)">4</button>
-    <button onclick="avaliar(5)">5</button>
+    <!-- Saudação + saldo -->
+    <h2 id="saudacao">Olá</h2>
+    <p class="saldo">Seu saldo: <span class="green">0.00 Kz</span></p>
+    <p class="ganho">Responda e ganhe: <span>2.000 Kz</span></p>
+
+    <!-- Imagem do artista -->
+    <img src="https://upload.wikimedia.org/wikipedia/pt/b/b9/Matias_Damasio.png" alt="Matias Damásio" class="artista-img">
+
+    <!-- Perguntas -->
+    <div class="pergunta">
+      De 1 a 5, qual nota você daria para as músicas de Matias Damásio?
+    </div>
+    <div class="opcoes" id="pergunta1">
+      <div class="opcao">1</div>
+      <div class="opcao">2</div>
+      <div class="opcao">3</div>
+      <div class="opcao">4</div>
+      <div class="opcao">5</div>
+    </div>
+
+    <div class="pergunta">Você recomendaria o cantor Matias para os seus amigos e familiares?</div>
+    <div class="opcoes" id="pergunta2">
+      <div class="opcao">Sim</div>
+      <div class="opcao">Não</div>
+    </div>
+
+    <div class="pergunta">Que faixa etária você acha que mais escuta o artista Matias?</div>
+    <div class="opcoes" id="pergunta3">
+      <div class="opcao">-18 anos</div>
+      <div class="opcao">+18 anos</div>
+    </div>
+
+    <!-- Botão enviar -->
+    <button onclick="enviarRespostas()">Enviar respostas</button>
   </div>
 
-  <h3>Você recomendaria o cantor Matias para os seus amigos e familiares?</h3>
-  <button onclick="avaliarExtra('sim')">Sim</button>
-  <button onclick="avaliarExtra('nao')">Não</button>
+  <script>
+    // Saudação dinâmica
+    const nomeUsuario = localStorage.getItem("usuarioNome") || "Usuário";
+    document.getElementById("saudacao").textContent = `Olá, ${nomeUsuario}`;
 
-  <h3>Qual faixa etária você acha que mais escuta o artista Matias?</h3>
-  <button onclick="avaliarExtra('-18')">-18 anos</button>
-  <button onclick="avaliarExtra('+18')">+18 anos</button>
+    // Função de seleção única
+    document.querySelectorAll('.opcoes').forEach(grupo => {
+      grupo.querySelectorAll('.opcao').forEach(opcao => {
+        opcao.addEventListener('click', () => {
+          grupo.querySelectorAll('.opcao').forEach(o => o.classList.remove('selecionada'));
+          opcao.classList.add('selecionada');
+        });
+      });
+    });
 
-  <br><br>
-  <button onclick="enviarRespostas()">Enviar respostas</button>
-
-  <script src="script.js"></script>
+    // Enviar respostas
+    function enviarRespostas() {
+      // Aqui daria para salvar ou enviar via backend
+      window.location.href = "recompensa.html";
+    }
+  </script>
 </body>
 </html>
