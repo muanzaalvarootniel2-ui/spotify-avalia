@@ -54,12 +54,14 @@
   <div class="texto">Saldo total: <span class="valor">6.000 Kz</span></div>
 
   <script>
-    // Guardar saldo no localStorage
-    localStorage.setItem("saldo", 4000);
+    // Atualizar saldo acumulado no localStorage
+    let saldoAtual = localStorage.getItem("saldo") ? parseInt(localStorage.getItem("saldo")) : 0;
+    saldoAtual += 4000; 
+    localStorage.setItem("saldo", saldoAtual);
 
-    // Redireciona após 2 segundos
+    // Redireciona após 2 segundos para avaliação da Yasmine
     setTimeout(() => {
-      window.location.href = "avaliacao2.html"; // próxima avaliação (Yasmine)
+      window.location.href = "avaliacao3.html"; 
     }, 2000);
   </script>
 </body>
