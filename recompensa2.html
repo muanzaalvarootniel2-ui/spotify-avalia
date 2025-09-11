@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Recompensa</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: #fff;
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+    }
+    .logo {
+      width: 120px;
+      margin-bottom: 20px;
+    }
+    .dinheiro {
+      width: 65%;
+      max-width: 300px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      margin-bottom: 25px;
+    }
+    .texto {
+      font-size: 20px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    .valor {
+      font-size: 24px;
+      font-weight: bold;
+      color: #00C853;
+    }
+  </style>
+</head>
+<body>
+  <!-- Logo Spotify -->
+  <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" 
+       alt="Spotify" class="logo">
+
+  <!-- Imagem decorativa de notas (Kwanzas) -->
+  <img src="https://as1.ftcdn.net/v2/jpg/07/38/02/40/1000_F_738024041_g0IgieDLYo68aIPJqqnwldaY8aQE6PP4.jpg" 
+       alt="Dinheiro Kwanza" class="dinheiro">
+
+  <!-- Texto de recompensa -->
+  <div class="texto">Você ganhou:</div>
+  <div class="valor">4.000 Kz</div>
+  <div class="texto">Saldo total: <span class="valor">6.000 Kz</span></div>
+
+  <script>
+    // Guardar saldo no localStorage
+    localStorage.setItem("saldo", 4000);
+
+    // Redireciona após 2 segundos
+    setTimeout(() => {
+      window.location.href = "avaliacao2.html"; // próxima avaliação (Yasmine)
+    }, 2000);
+  </script>
+</body>
+</html>
