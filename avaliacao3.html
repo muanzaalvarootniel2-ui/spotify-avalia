@@ -64,10 +64,11 @@
     <p class="ganho">Responda e ganhe: <span>4.000 Kz</span></p>
 
     <!-- Formulário -->
-    <form onsubmit="enviarRespostas(event)">
-      <!-- Nome do cantor -->
-      <label for="nomeCantor">Qual é o nome dessa cantora?</label>
-      <input type="text" id="nomeCantor" placeholder="Digite o nome da cantora aqui" required>
+<!-- Campo de nome com estilo -->
+<div class="input-container">
+  <span class="icon">👤</span>
+  <input type="text" id="nomeCantor" placeholder="Digite o nome da cantora aqui" required>
+</div>
 
       <!-- Pergunta 1 -->
       <div class="pergunta">De 1 a 5, qual nota você daria para as músicas dessa cantora?</div>
