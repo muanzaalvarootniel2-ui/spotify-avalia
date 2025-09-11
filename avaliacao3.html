@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Avaliação - Yasmine</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      background: #fff;
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    .artista {
+      width: 250px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      margin: 20px 0;
+    }
+    h1 {
+      font-size: 22px;
+      margin-bottom: 15px;
+      color: #333;
+    }
+    form {
+      width: 100%;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    input[type="text"] {
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+    .notas, .pergunta {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+    label {
+      font-size: 14px;
+      color: #333;
+    }
+    button {
+      padding: 10px;
+      background: #00C853;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #009624;
+    }
+  </style>
+</head>
+<body>
+  <h1>Avaliação da Yasmine</h1>
+  <img src="https://cdn.xquiz.co/images/f8486706-d070-4650-a643-9cf8889b3870" alt="Yasmine" class="artista">
+
+  <form onsubmit="enviarRespostas(event)">
+    <!-- Nome do cantor -->
+    <label for="nomeCantor">Qual é o nome desse cantor?</label>
+    <input type="text" id="nomeCantor" placeholder="Digite o nome do cantor aqui" required>
+
+    <!-- Nota -->
+    <label>De 1 a 5, qual nota você daria para as músicas dele?</label>
+    <div class="notas">
+      <label><input type="radio" name="nota" value="1" required> 1</label>
+      <label><input type="radio" name="nota" value="2"> 2</label>
+      <label><input type="radio" name="nota" value="3"> 3</label>
+      <label><input type="radio" name="nota" value="4"> 4</label>
+      <label><input type="radio" name="nota" value="5"> 5</label>
+    </div>
+
+    <!-- Recomendações -->
+    <label>Você recomendaria esse cantor para os seus amigos e familiares?</label>
+    <div class="pergunta">
+      <label><input type="radio" name="recomenda" value="Sim" required> Sim</label>
+      <label><input type="radio" name="recomenda" value="Não"> Não</label>
+    </div>
+
+    <!-- Faixa etária -->
+    <label>Qual faixa etária você acha que mais escuta o cantor?</label>
+    <div class="pergunta">
+      <label><input type="radio" name="faixa" value="-18" required> -18 anos</label>
+      <label><input type="radio" name="faixa" value="+18"> +18 anos</label>
+    </div>
+
+    <button type="submit">Enviar respostas</button>
+  </form>
+
+  <script>
+    function enviarRespostas(event) {
+      event.preventDefault();
+
+      // Aqui podes guardar as respostas no localStorage ou enviar para backend
+      // Atualizar saldo +4.000 Kz
+      let saldoAtual = parseInt(localStorage.getItem("saldo")) || 0;
+      saldoAtual += 4000;
+      localStorage.setItem("saldo", saldoAtual);
+
+      // Redireciona para página de recompensa
+      window.location.href = "recompensa3.html";
+    }
+  </script>
+</body>
+</html>
