@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="pt">
 <head>
   <meta charset="UTF-8">
   <title>Avaliação - Spotify Avalia</title>
@@ -13,13 +11,7 @@
     .green { color: #00C853; font-weight: 600; }
     .ganho { margin: 10px 0; font-weight: 600; }
     .ganho span { color: #00C853; }
-    .artista-img { 
-      width: 100%; 
-      max-width: 220px; 
-      border-radius: 12px; 
-      margin: 15px auto; 
-      display: block;
-    }
+    .artista-img { width: 100%; max-width: 220px; border-radius: 12px; margin: 15px auto; display: block; }
     .pergunta { margin: 20px 0; font-weight: 500; }
     .opcoes { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
     .opcao {
@@ -46,8 +38,37 @@
       transition: 0.3s;
     }
     button:hover { background: #009624; }
+
+    /* Estilo do input moderno */
+    .input-container {
+      display: flex;
+      align-items: center;
+      border: 1.5px solid #ddd;
+      border-radius: 12px;
+      padding: 10px 14px;
+      background: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      margin: 15px 0;
+    }
+    .input-container .icon {
+      font-size: 18px;
+      margin-right: 10px;
+      color: #777;
+    }
+    .input-container input {
+      border: none;
+      outline: none;
+      flex: 1;
+      font-size: 15px;
+      font-family: 'Poppins', sans-serif;
+      color: #333;
+    }
+    .input-container input::placeholder {
+      color: #aaa;
+    }
   </style>
 </head>
+
 <body>
   <div class="container">
     <!-- Logo Spotify -->
@@ -64,7 +85,8 @@
     <p class="ganho">Responda e ganhe: <span>4.000 Kz</span></p>
 
     <!-- Formulário -->
-<!-- Campo de nome com estilo -->
+<!-- Nome do cantor -->
+<label for="nomeCantor">Qual é o nome dessa cantora?</label>
 <div class="input-container">
   <span class="icon">👤</span>
   <input type="text" id="nomeCantor" placeholder="Digite o nome da cantora aqui" required>
