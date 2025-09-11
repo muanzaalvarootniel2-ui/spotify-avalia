@@ -51,61 +51,80 @@
 <body>
   <div class="container">
     <!-- Logo Spotify -->
-    <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" 
+         alt="Spotify" class="logo">
 
-    <!-- Imagem do artista -->
+    <!-- Imagem da artista -->
     <img src="https://cdn.xquiz.co/images/f8486706-d070-4650-a643-9cf8889b3870" 
-     class="artista-img">
+         alt="Yasmine" class="artista-img">
     
     <!-- Saudação + saldo -->
     <h2 id="saudacao">Olá</h2>
-    <p class="saldo">Seu saldo: <span class="green">10.000 Kz</span></p>
+    <p class="saldo">Seu saldo: <span id="saldo" class="green">0 Kz</span></p>
     <p class="ganho">Responda e ganhe: <span>4.000 Kz</span></p>
 
-  <form onsubmit="enviarRespostas(event)">
-    <!-- Nome do cantor -->
-    <label for="nomeCantor">Qual é o nome desssa cantora?</label>
-    <input type="text" id="nomeCantor" placeholder="Digite o nome da cantora aqui" required>
+    <!-- Formulário -->
+    <form onsubmit="enviarRespostas(event)">
+      <!-- Nome do cantor -->
+      <label for="nomeCantor">Qual é o nome dessa cantora?</label>
+      <input type="text" id="nomeCantor" placeholder="Digite o nome da cantora aqui" required>
 
-    <!-- Perguntas -->
-    <div class="pergunta">
-      De 1 a 5, qual nota você daria para as músicas dessa Cantora?
-  </div>
-    <div class="opcoes" id="pergunta1">
-      <div class="opcao">1</div>
-      <div class="opcao">2</div>
-      <div class="opcao">3</div>
-      <div class="opcao">4</div>
-      <div class="opcao">5</div>
-    </div>
+      <!-- Pergunta 1 -->
+      <div class="pergunta">De 1 a 5, qual nota você daria para as músicas dessa cantora?</div>
+      <div class="opcoes" id="pergunta1">
+        <div class="opcao">1</div>
+        <div class="opcao">2</div>
+        <div class="opcao">3</div>
+        <div class="opcao">4</div>
+        <div class="opcao">5</div>
+      </div>
 
-    <div class="pergunta">Você recomendaria a cantora para os seus amigos e familiares?</div>
-    <div class="opcoes" id="pergunta2">
-      <div class="opcao">Sim</div>
-      <div class="opcao">Não</div>
-    </div>
+      <!-- Pergunta 2 -->
+      <div class="pergunta">Você recomendaria a cantora para os seus amigos e familiares?</div>
+      <div class="opcoes" id="pergunta2">
+        <div class="opcao">Sim</div>
+        <div class="opcao">Não</div>
+      </div>
 
-    <div class="pergunta">Que faixa etária você acha que mais escuta a artista?</div>
-    <div class="opcoes" id="pergunta3">
-      <div class="opcao">-18 anos</div>
-      <div class="opcao">+18 anos</div>
-    </div>
+      <!-- Pergunta 3 -->
+      <div class="pergunta">Que faixa etária você acha que mais escuta a artista?</div>
+      <div class="opcoes" id="pergunta3">
+        <div class="opcao">-18 anos</div>
+        <div class="opcao">+18 anos</div>
+      </div>
 
-    <!-- Botão enviar -->
-    <button onclick="enviarRespostas()">Enviar respostas</button>
+      <!-- Botão enviar -->
+      <button type="submit">Enviar respostas</button>
+    </form>
   </div>
 
   <script>
+    // Saudação dinâmica
+    const nomeUsuario = localStorage.getItem("usuarioNome") || "Usuário";
+    document.getElementById("saudacao").textContent = `Olá, ${nomeUsuario}`;
+
+    // Mostrar saldo atual
+    let saldoAtual = parseInt(localStorage.getItem("saldo")) || 10000;
+    document.getElementById("saldo").textContent = saldoAtual + " Kz";
+
+    // Seleção única para cada grupo
+    document.querySelectorAll('.opcoes').forEach(grupo => {
+      grupo.querySelectorAll('.opcao').forEach(opcao => {
+        opcao.addEventListener('click', () => {
+          grupo.querySelectorAll('.opcao').forEach(o => o.classList.remove('selecionada'));
+          opcao.classList.add('selecionada');
+        });
+      });
+    });
+
+    // Enviar respostas
     function enviarRespostas(event) {
       event.preventDefault();
 
-      // Aqui podes guardar as respostas no localStorage ou enviar para backend
-      // Atualizar saldo +4.000 Kz
-      let saldoAtual = parseInt(localStorage.getItem("saldo")) || 0;
       saldoAtual += 4000;
       localStorage.setItem("saldo", saldoAtual);
 
-      // Redireciona para página de recompensa
+      // Redireciona
       window.location.href = "recompensa3.html";
     }
   </script>
